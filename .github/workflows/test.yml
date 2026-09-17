@@ -9,21 +9,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Tải mã nguồn từ repository xuống máy chủ ảo của GitHub
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # 2. Thiết lập môi trường Node.js (phiên bản 20.x)
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
-        cache: 'npm'
+        # Đã xóa dòng cache: 'npm' ở đây để không bị lỗi thiếu file lock
 
-    # 3. Cài đặt các dependencies (chạy npm ci để cài đặt chính xác từ package-lock.json)
     - name: Install dependencies
       run: npm install
 
-    # 4. Chạy các unit test bằng Jest
     - name: Run Jest
       run: npm test
