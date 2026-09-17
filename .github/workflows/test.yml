@@ -22,7 +22,7 @@ jobs:
 
     # 3. Cài đặt các dependencies (chạy npm ci để cài đặt chính xác từ package-lock.json)
     - name: Install dependencies
-      run: npm ci
+      run: npm install
 
     # 4. Chạy các unit test bằng Jest
     - name: Run Jest
